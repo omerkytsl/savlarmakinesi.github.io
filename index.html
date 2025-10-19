@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divanü Lügat-it Türk - Savlar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Divanü Lügat-it Türk</h1>
+        <h2>Savlar Makinesi</h2>
+        
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="reel-inner">
+                        <div class="number">0</div>
+                    </div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-inner">
+                        <div class="number">0</div>
+                    </div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-inner">
+                        <div class="number">0</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <div class="input-group">
+                    <label for="range">Aralık (1-999):</label>
+                    <input type="text" id="range" placeholder="1-283" value="1-283">
+                </div>
+                <button id="spin-button" class="glow-button">Çevir</button>
+            </div>
+            
+            <div id="error-message" class="error-message"></div>
+        </div>
+        
+        <div class="info">
+            <p>Divanü Lügat-it Türk'ten bir sav öğrenmek için aralık belirleyin ve çevirin.</p>
+        </div>
+    </div>
+    
+    <script src="proverbs.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

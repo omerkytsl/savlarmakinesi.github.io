@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divanü Lügat-it Türk - Sav</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Divanü Lügat-it Türk</h1>
+        <h2>Sav <span id="proverb-number"></span></h2>
+        
+        <div class="proverb-container">
+            <div class="proverb-old" id="proverb-old"></div>
+            
+            <button id="reveal-button" class="glow-button">Türkçesini Göster</button>
+            
+            <div class="proverb-modern" id="proverb-modern"></div>
+        </div>
+        
+        <div class="button-container">
+            <button id="back-button" class="glow-button">Slot Makinesine Dön</button>
+            <button id="respin-button" class="glow-button">Tekrar Çevir</button>
+        </div>
+    </div>
+    
+    <script src="proverbs.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Get proverb ID from URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const proverbId = parseInt(urlParams.get('id')) || 1;
+            
+            // Get range from URL or use default
+            const range = urlParams.get('range') || '1-999';
+            
+            // DOM Elements
+            const proverbNumber = document.getElementById('proverb-number');
+            const proverbOld = document.getElementById('proverb-old');
+            const proverbModern = document.getElementById('proverb-modern');
+            const revealButton = document.getElementById('reveal-button');
+            const backButton = document.getElementById('back-button');
+            const respinButton = document.getElementById('respin-button');
+            
+            // Load proverb data
+            const proverb = getProverbById(proverbId);
+            
+            // Display proverb
+            proverbNumber.textContent = proverbId;
+            proverbOld.textContent = proverb.oldTurkish;
+            proverbModern.textContent = proverb.modernTurkish;
+            
+            // Event listeners
+            revealButton.addEventListener('click', () => {
+                proverbModern.classList.add('visible');
+                revealButton.style.display = 'none';
+            });
+            
+            backButton.addEventListener('click', () => {
+                window.location.href = 'index.html';
+            });
+            
+            respinButton.addEventListener('click', () => {
+                // Redirect to index page with range parameter
+                window.location.href = `index.html?range=${range}&autospin=true`;
+            });
+        });
+    </script>
+</body>
+</html>
